@@ -1,0 +1,7 @@
+# Optional: only needed if USE_LDAP_AUTH=True in your environment.
+# Install with: pip install -r requirements-ldap.txt
+# python-ldap requires system libraries first:
+#   Debian/Ubuntu: apt-get install libldap2-dev libsasl2-dev
+# Kept out of requirements.txt so the default install/CI pipeline doesn't
+# need those system libraries when LDAP isn't in use.
+django-auth-ldap==5.1.0
