@@ -1,11 +1,14 @@
 /**
- * Design tokens inspired by Kenya's national colours as they appear across
- * the National Treasury's public branding (flag black/red/green/white, and
- * the gold used in the coat of arms). Exact hex values were not pixel-
- * sampled from treasury.go.ke's live stylesheet (not directly accessible
- * from this environment) -- swap `treasury.green` / `treasury.red` /
- * `treasury.gold` below for the official brand hex codes if/when you have
- * the Treasury's style guide.
+ * Design tokens calibrated against an actual screenshot of treasury.go.ke.
+ * Estimated visually, not pixel-sampled with a color picker -- close, but
+ * fine-tune with your browser's eyedropper tool against the live site for
+ * an exact match if that level of precision matters.
+ *
+ * Note: the `treasury.green` key name is a holdover from an earlier,
+ * less-accurate palette guess -- it now holds the site's actual brown/
+ * maroon accent color, not green. Renaming the key would require touching
+ * every component that references `bg-treasury-green` etc., so the value
+ * was updated in place instead. Purely a naming quirk, not a bug.
  */
 export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
@@ -13,12 +16,14 @@ export default {
     extend: {
       colors: {
         treasury: {
+          // Primary accent -- the warm brown/maroon used for the top bar,
+          // primary buttons, and "Read More" style CTAs on the real site.
           green: {
-            DEFAULT: "#0A6C3B",
-            dark: "#064D29",
-            darker: "#043319",
-            light: "#E7F3EC",
-            50: "#F0F9F4",
+            DEFAULT: "#6E4023",
+            dark: "#4F2D18",
+            darker: "#3A2011",
+            light: "#F3EAE3",
+            50: "#FAF6F3",
           },
           red: {
             DEFAULT: "#BE1E2D",
@@ -30,6 +35,21 @@ export default {
             dark: "#A8892F",
             light: "#F7EFD9",
           },
+          // Dark navy used for the icon blocks in the services row
+          // (Budget / Public Debt / Investor Relations, etc.)
+          navy: {
+            DEFAULT: "#16233F",
+            dark: "#0D1526",
+            light: "#E8EAF0",
+          },
+          // Standard link blue used throughout the nav and inline links
+          link: "#1B5FA8",
+          // Genuine Kenya flag green -- kept distinct from the brand
+          // accent above (which holds brown, not green) so the small
+          // flag-stripe decorative elements still render actual
+          // black/red/green flag colors rather than accidentally
+          // inheriting the brand accent color.
+          "flag-green": "#006600",
           ink: "#14171A",
           slate: "#4B5563",
         },
@@ -43,8 +63,8 @@ export default {
         panel: "0 8px 24px -4px rgba(20, 23, 26, 0.12), 0 2px 8px -2px rgba(20, 23, 26, 0.08)",
       },
       backgroundImage: {
-        "treasury-gradient": "linear-gradient(135deg, #0A6C3B 0%, #064D29 100%)",
-        "treasury-sidebar": "linear-gradient(180deg, #14171A 0%, #0B0D0F 100%)",
+        "treasury-gradient": "linear-gradient(135deg, #6E4023 0%, #4F2D18 100%)",
+        "treasury-sidebar": "linear-gradient(180deg, #16233F 0%, #0D1526 100%)",
       },
       animation: {
         "fade-in": "fadeIn 0.2s ease-out",

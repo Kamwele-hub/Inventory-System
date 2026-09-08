@@ -1,6 +1,7 @@
 import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
+import { KenyaFlagBadge } from "../components/KenyaFlagBadge";
 
 export default function Login() {
   const { login } = useAuth();
@@ -25,12 +26,24 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-treasury-ink px-4">
-      <div className="w-full max-w-sm">
+    <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+      {/* Background photo. Place the actual file at
+          frontend/public/treasury-building.jpg -- see setup note below.
+          Referenced via the public/ folder (not a JS import) so the build
+          succeeds even before the file is added; it just won't render
+          visually until the file is in place. */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-treasury-ink"
+        style={{ backgroundImage: "url(/treasury-building.png)" }}
+        aria-hidden
+      />
+      {/* Dark overlay so the form stays legible over the photo, matching
+          the darkened-photo treatment used on the real site's hero. */}
+      <div className="absolute inset-0 bg-treasury-ink/80" aria-hidden />
+
+      <div className="w-full max-w-sm relative">
         <div className="flex flex-col items-center mb-6">
-          <div className="h-14 w-14 rounded-full bg-treasury-gold flex items-center justify-center text-treasury-ink font-bold text-lg mb-3">
-            NT
-          </div>
+          <KenyaFlagBadge className="h-16 w-16 mb-3" />
           <h1 className="text-white text-lg font-semibold text-center">The National Treasury</h1>
           <p className="text-white/60 text-sm text-center">Asset Inventory System</p>
         </div>
@@ -65,11 +78,11 @@ export default function Login() {
           </button>
         </form>
 
-        <div className="mt-2 flex justify-center">
+        <div className="mt-4 flex justify-center">
           <div className="h-1 w-24 flex rounded-full overflow-hidden">
             <span className="flex-1 bg-white/40" />
             <span className="flex-1 bg-treasury-red" />
-            <span className="flex-1 bg-treasury-green" />
+            <span className="flex-1 bg-treasury-flag-green" />
           </div>
         </div>
       </div>
