@@ -27,19 +27,12 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
-      {/* Background photo. Place the actual file at
-          frontend/public/treasury-building.jpg -- see setup note below.
-          Referenced via the public/ folder (not a JS import) so the build
-          succeeds even before the file is added; it just won't render
-          visually until the file is in place. */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-treasury-ink"
         style={{ backgroundImage: "url(/treasury-building.png)" }}
         aria-hidden
       />
-      {/* Dark overlay so the form stays legible over the photo, matching
-          the darkened-photo treatment used on the real site's hero. */}
-      <div className="absolute inset-0 bg-treasury-ink/80" aria-hidden />
+      <div className="absolute inset-0 bg-treasury-ink/40" aria-hidden />
 
       <div className="w-full max-w-sm relative">
         <div className="flex flex-col items-center mb-6">

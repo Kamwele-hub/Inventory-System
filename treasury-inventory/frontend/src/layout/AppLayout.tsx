@@ -11,10 +11,10 @@ const NAV_ITEMS = [
 
 const PAGE_TITLES: Record<string, string> = {
   "/dashboard": "Dashboard",
-  "/items": "Asset register",
-  "/scan": "Scan asset tag",
+  "/items": "Asset Register",
+  "/scan": "Scan Asset Tag",
   "/reports": "Reports",
-  "/reference-data": "Reference data",
+  "/reference-data": "Reference Data",
   "/user-management": "User roles & permissions",
 };
 

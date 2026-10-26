@@ -52,6 +52,7 @@ export default function App() {
               <Route path="/scan" element={<Suspense fallback={<PageFallback />}><ScanPage /></Suspense>} />
               <Route path="/reports" element={<ReportsPage />} />
               <Route path="/reference-data" element={<ReferenceDataPage />} />
+              <Route path="/user-management" element={<UserManagementPage />} />
               <Route path="*" element={<Suspense fallback={<PageFallback />}><Dashboard /></Suspense>} />
             </Route>
           </Routes>
